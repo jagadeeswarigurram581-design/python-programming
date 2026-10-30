@@ -1,4 +1,5 @@
-**Problem:** Check subject min, aggregate cutoff, rank with tie-break maths.
+
+  **Problem:** Check subject min, aggregate cutoff, rank with tie-break maths.
 
 **Algorithm:** 1.Read c min cutoff 2.Check each subject>=min 3.agg>=cutoff eligible 4.Sort desc agg, maths
 
