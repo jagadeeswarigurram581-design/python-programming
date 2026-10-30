@@ -5,22 +5,20 @@
 
 **Flowchart:**
 ```mermaid
-flowchart TD
-    A[Start]-->B[Read c min cutoff]
-    B-->C[eligible=[] i=0]
-    C-->D{i<c}
-    D--Yes-->E[Read name m p ch]
-    E-->F{m or p or ch < min}
-    F--Yes-->G[i++]
-    F--No-->H[agg=m+p+ch]
-    H-->I{agg>=cutoff}
-    I--Yes-->J[Add eligible]
-    I--No-->G
-    J-->G
-    G-->D
-    D--No-->K[Sort desc]
-    K-->L[Print ranked]
-    L-->M[End]
+    A[Start] --> B[Input]
+    B --> C[eligible empty]
+    C --> D{Loop}
+    D -->|Yes| E[Read student]
+    E --> F{Check min}
+    F -->|Fail| G[Skip]
+    F -->|Pass| H[Check cutoff]
+    H -->|Pass| I[Add to list]
+    H -->|Fail| G
+    I --> G
+    G --> D
+    D -->|No| J[Sort]
+    J --> K[Print]
+    K --> L[End]
 ```
 Sample Input 1:
 3
