@@ -5,20 +5,22 @@
 
 **Flowchart:**
 ```mermaid
-    A[Start] --> B[Input]
-    B --> C[eligible empty]
-    C --> D{Loop}
-    D -->|Yes| E[Read student]
-    E --> F{Check min}
-    F -->|Fail| G[Skip]
-    F -->|Pass| H[Check cutoff]
-    H -->|Pass| I[Add to list]
-    H -->|Fail| G
-    I --> G
+flowchart TD
+    A[Start] --> B[Read total candidates and min and cutoff]
+    B --> C[Initialize eligible list]
+    C --> D{Is i less than c?}
+    D -- Yes --> E[Read name m p ch]
+    E --> F{Any subject less than min?}
+    F -- Yes --> G[Increment i]
+    F -- No --> H[Calculate agg = m + p + ch]
+    H --> I{Is agg greater than cutoff?}
+    I -- Yes --> J[Add to eligible list]
+    I -- No --> G
+    J --> G
     G --> D
-    D -->|No| J[Sort]
-    J --> K[Print]
-    K --> L[End]
+    D -- No --> K[Sort by agg desc and maths desc]
+    K --> L[Print ranked list]
+    L --> M[End]
 ```
 Sample Input 1:
 3
