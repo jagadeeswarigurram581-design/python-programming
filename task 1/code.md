@@ -22,16 +22,18 @@ ALGORITHM:
 13. END
 
 14. 
-15. flowchart TD
+15. 
 16. ```mermaid
-    A[Start] --> B[Read total, attended, threshold]
+    flowchart TD
+    A[Start] --> B[Read total attended threshold]
     B --> C[Calculate current percentage]
-    C --> D{Is current >= threshold?}
-    D -- Yes --> E[Set req to 0]
-    D -- No --> F[Calculate req with ceil formula]
-    E --> G[Print current and req]
-    F --> G
-    G --> H[End]
+    C --> D{Is current greater than threshold?}
+    D -- Yes --> E[Set req equal to 0]
+    D -- No --> F[Calculate numerator and denominator]
+    F --> G[Calculate req with ceil]
+    E --> H[Print current and req]
+    G --> H
+    H --> I[End]
     ```
 Sample Input 1:
 100
