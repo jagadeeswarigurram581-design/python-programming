@@ -1,67 +1,61 @@
-PROBLEM STATEMENT:
-Given total number of classes conducted, number of classes attended,
-and required attendance threshold percentage, calculate:
-- Current attendance percentage
-- Minimum number of consecutive classes required to reach threshold
-If current >= threshold, req = 0
-Else req = ceil((threshold/100*total - attended) / (1 - threshold/100))
 
-ALGORITHM:
+
+## Problem Statement
+Given total classes, attended classes and threshold percentage.
+Calculate current attendance = attended / total * 100.
+If current >= threshold, required extra classes = 0.
+Else required = ceil((threshold/100*total - attended) / (1 - threshold/100))
+Print current percentage with 2 decimals and required classes.
+
+## Algorithm
 1. START
 2. Read total, attended, threshold
 3. current = attended / total * 100
-4. IF current >= threshold
-5.    req = 0
-6. ELSE
-7.    numerator = (threshold/100*total) - attended
-8.    denominator = 1 - (threshold/100)
-9.    req = ceil(numerator / denominator)
-10. ENDIF
-11. Print current with 2 decimals
-12. Print req
-13.END
+4. IF current >= threshold THEN req = 0
+5. ELSE req = ceil((threshold/100*total - attended) / (1 - threshold/100))
+6. Print current with 2 decimals
+7. Print req
+8. END
 
-flow chart
-
- ```mermaid
-    flowchart TD
+## Flowchart
+```mermaid
+flowchart TD
     A[Start] --> B[Read total attended threshold]
-    B --> C[Calculate current percentage]
-    C --> D{Is current greater than threshold?}
-    D -- Yes --> E[Set req equal to 0]
-    D -- No --> F[Calculate numerator and denominator]
-    F --> G[Calculate req with ceil]
-    E --> H[Print current and req]
-    G --> H
-    H --> I[End]
+    B --> C[current equal attended divided by total times 100]
+    C --> D{Is current greater than or equal to threshold}
+    D -- Yes --> E[req equal 0]
+    D -- No --> F[req equal ceil formula]
+    E --> G[Print current and req]
+    F --> G
+    G --> H[End]
 ```
 
-### Sample Input and Output
+## Sample Input and Output
 
 **Input 1:**
 ```
 100
-65
+75
 75
 ```
 
 **Output 1:**
 ```
-65.00
-40
+75.00
+0
 ```
-
----
 
 **Input 2:**
 ```
-80
-70
+100
+60
 75
 ```
 
 **Output 2:**
 ```
-87.50
-0
+60.00
+60
 ```
+
+
