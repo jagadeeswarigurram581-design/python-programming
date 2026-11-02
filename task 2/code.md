@@ -17,13 +17,12 @@ Print final balance, success count, failed count.
 6.   IF amt <= 0 THEN failed++ and continue
 7.   IF typ == D THEN bal = bal + amt, success++
 8.   ELSE IF typ == W THEN
-9.     IF amt > limit OR amt > bal THEN failed++
-10.    ELSE bal = bal - amt, success++
-11. End Loop
-12. Print bal
-13. Print success
-14. Print failed
-15. END
+9. ELSE bal = bal - amt, success++
+10. End Loop
+11. Print bal
+12. Print success
+13. Print failed
+14. END
 
 ## Flowchart
 ```mermaid
