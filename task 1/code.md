@@ -34,7 +34,7 @@ flow chart
     E --> H[Print current and req]
     G --> H
     H --> I[End]
-    ```
+```
 
 Sample Input 1:
 100
