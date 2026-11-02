@@ -22,6 +22,7 @@ ALGORITHM:
 13.END
 
 flow chart
+
  ```mermaid
     flowchart TD
     A[Start] --> B[Read total attended threshold]
@@ -34,6 +35,7 @@ flow chart
     G --> H
     H --> I[End]
     ```
+
 Sample Input 1:
 100
 65
