@@ -1,58 +1,90 @@
-**Problem:** Update level, detect overflow shortage, first day reaching threshold.
 
-**Algorithm:** 1.Read capacity level threshold days 2.Loop update level 3.Check overflow shortage 4.Track first threshold
 
-**Flowchart:**
+## Problem Statement
+Given capacity, initial level, threshold and number of days.
+For each day read inflow and outflow.
+Update level = level + inflow - outflow.
+- If level > capacity, print Day d Overflow and set level = capacity
+- If level < 0, print Day d Shortage and set level = 0
+- Track first day when level >= threshold
+Finally print final level and first day (or -1 if never reached).
+
+## Algorithm
+1. START
+2. Read capacity, level, threshold, days
+3. Set first = -1
+4. Loop d from 1 to days
+5.   Read inflow, outflow
+6.   level = level + inflow - outflow
+7.   IF level > capacity THEN Print Day d Overflow, level = capacity
+8.   IF level < 0 THEN Print Day d Shortage, level = 0
+9.   IF level >= threshold AND first == -1 THEN first = d
+10. End Loop
+11. Print level
+12. Print first
+13. END
+
+## Flowchart
 ```mermaid
 flowchart TD
-    A[Start]-->B[Read capacity level threshold days]
-    B-->C[first=-1 d=1]
-    C-->D{d<=days}
-    D--Yes-->E[Read inflow outflow]
-    E-->F[level=level+inflow-outflow]
-    F-->G{level>capacity}
-    G--Yes-->H[Overflow level=capacity]
-    G--No-->I{level<0}
-    H-->I
-    I--Yes-->J[Shortage level=0]
-    I--No-->K{level>=threshold and first==-1}
-    J-->K
-    K--Yes-->L[first=d]
-    K--No-->M[d++]
-    L-->M
-    M-->D
-    D--No-->N[Print level first]
-    N-->O[End]
+    A[Start] --> B[Read capacity level threshold days first minus1]
+    B --> C[Loop day 1 to days]
+    C --> D[Read inflow outflow]
+    D --> E[level equal level plus inflow minus outflow]
+    E --> F{Is level greater than capacity}
+    F -- Yes --> G[Print Day d Overflow set level capacity]
+    F -- No --> H{Is level less than 0}
+    G --> H
+    H -- Yes --> I[Print Day d Shortage set level 0]
+    H -- No --> J{Is level greater than threshold and first minus1}
+    I --> J
+    J -- Yes --> K[first equal d]
+    J -- No --> L{More days}
+    K --> L
+    L -- Yes --> C
+    L -- No --> M[Print final level and first]
+    M --> N[End]
 ```
-Sample Input 1:
-1000
-200
-600
+
+## Sample Input and Output
+
+**Input 1:**
+```
+100
+50
+80
 3
-500
-100
-300
-200
-100
-300
+30
+10
+20
+5
+10
+60
+```
 
-Sample Output 1:
-Day 1 Overflow
-400
-1
-
-Sample Input 2:
-1000
-200
-600
+**Output 1:**
+```
+Day 3 Overflow
+100
 2
-500
-100
-300
-200
+```
 
-Sample Output 2:
-600
+**Input 2:**
+```
+50
+10
+30
 2
+5
+5
+10
+20
+```
 
-
+**Output 2:**
+```
+Day 2 Shortage
+0
+-1
+```
+    
