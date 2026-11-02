@@ -19,11 +19,10 @@ ALGORITHM:
 10. ENDIF
 11. Print current with 2 decimals
 12. Print req
-13. END
+13.END
 
-14. 
-15. 
-16. ```mermaid
+flow chart
+ ```mermaid
     flowchart TD
     A[Start] --> B[Read total attended threshold]
     B --> C[Calculate current percentage]
