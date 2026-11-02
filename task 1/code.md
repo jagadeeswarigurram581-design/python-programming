@@ -36,19 +36,32 @@ flow chart
     H --> I[End]
 ```
 
-Sample Input 1:
+### Sample Input and Output
+
+**Input 1:**
+```
 100
 65
 75
-Sample Output 1:
-5.00
+```
+
+**Output 1:**
+```
+65.00
 40
-Sample Input 2:
+```
+
+---
+
+**Input 2:**
+```
 80
 70
 75
-Sample Output 2:
+```
+
+**Output 2:**
+```
 87.50
 0
-65
-75
+```
